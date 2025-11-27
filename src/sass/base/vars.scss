@@ -1,11 +1,10 @@
 @use "../libs/pxtorem.scss" as *;
 
 // Font
-$fontFamily: "";
-$fontSize: rem(16);
+$font-family: "Baloo 2", sans-serif;
 
 // Colors
-$mainColor: #000;
+$colorBG: #061923;
 
 // Breakpoints
 $laptopL: rem(1439.98);

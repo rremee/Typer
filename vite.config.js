@@ -20,7 +20,7 @@ export default defineConfig({
 						break;
 					// different cases (pages) below
 					default:
-						pageTitle = "Page name";
+						pageTitle = "Typer";
 						pageScript = "script.js"; // default script
 				}
 				return { pageTitle, pageScript };

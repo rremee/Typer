@@ -1,8 +1,8 @@
 {
-  "name": "cool_project",
+  "name": "typer_game",
   "version": "1.0.0",
   "type": "module",
-  "description": "Start template using Vite",
+  "description": "Simple game for fast typing",
   "main": "vite.config.js",
   "scripts": {
     "lint": "eslint .",
