@@ -30,8 +30,11 @@
         align-items: center;
         justify-content: center;
         transition: .2s all;
+        &--space {
+            width: rem(450);
+        }
         &--active {
-            transform: rotate(20deg) scale(.7);
+            transform: rotate(3deg) scale(.7);
             background-color: $colorBorderOfKeys;
             color: $colorLetterOfKeyboardActive;
         }
