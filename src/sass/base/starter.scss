@@ -20,7 +20,7 @@ body {
 }
 
 [class*="__container"] {
-	max-width: clamp(rem(320), calc(100vw - 2rem), rem(1300));
+	max-width: clamp(rem(320), calc(100vw - 2rem), rem(1360));
 	margin: 0 auto;
 	padding: 0 clamp(rem(15), 2vw, rem(30));
 	width: 100%;
