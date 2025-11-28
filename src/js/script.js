@@ -26,4 +26,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		keyboard.appendChild(rowElement);
 	});
+
+    document.addEventListener("keydown", (e) => {
+        const letter = e.key.toUpperCase();
+        const btn = document.querySelector(`[data-key="${letter}"]`);
+
+        if (btn) {
+            btn.classList.add("keyboard__key--active");
+        }
+    })
+
+    document.addEventListener("keyup", (e) => {
+        const letter = e.key.toUpperCase();
+        const btn = document.querySelector(`[data-key="${letter}"]`);
+
+        if (btn) {
+            btn.classList.remove("keyboard__key--active");
+        }
+    })
 });
