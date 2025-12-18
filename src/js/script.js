@@ -76,6 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const body = document.body;
 
+	let correctCounter = document.querySelector('#correct-answer');
+	let wrongCounter = document.querySelector('#wrong-answer');
+	
+	correctCounter.textContent = 0;
+	wrongCounter.textContent = 0;
+
 	function getRandomWord() {
 		return words[Math.floor(Math.random() * words.length)];
 	}
@@ -118,10 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
 			showNewWord();
 			changeBackground('blink-correct');
 			time += 1;
+			correctCounter.textContent++;
 		} else if (!correctInput) {
 			showNewWord();
 			changeBackground("blink-wrong");
 			time -= 0.5;
+			wrongCounter.textContent++;
 		}
 	});
 });
