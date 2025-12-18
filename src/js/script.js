@@ -59,6 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			timer.textContent = time.toFixed(2) + " s";
 		} else {
 			timer.textContent = "00.00 s";
+			wordInput.value = "";
+			wordInput.blur();
+			wordInput.disabled = true;
+			mainWord.textContent = "Game Over";
+			mainWord.style.color = '#2393CD';
 			clearInterval(timerInterval);
 		}
 	}, 10);
@@ -69,9 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const mainWord = document.querySelector("#word");
 	const wordInput = document.querySelector("#word-input");
 
-	const root = document.documentElement;
-	const colorBgCorrect = getComputedStyle(root).getPropertyValue("--color-bg-correct");
-	const colorBgWrong = getComputedStyle(root).getPropertyValue("--color-bg-wrong");
 	const body = document.body;
 
 	function getRandomWord() {
@@ -115,9 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (correctInput && input.length === word.length) {
 			showNewWord();
 			changeBackground('blink-correct');
+			time += 1;
 		} else if (!correctInput) {
 			showNewWord();
 			changeBackground("blink-wrong");
+			time -= 0.5;
 		}
 	});
 });
