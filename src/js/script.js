@@ -69,8 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	const mainWord = document.querySelector("#word");
 	const wordInput = document.querySelector("#word-input");
 
+	const root = document.documentElement;
+	const colorBgCorrect = getComputedStyle(root).getPropertyValue("--color-bg-correct");
+	const colorBgWrong = getComputedStyle(root).getPropertyValue("--color-bg-wrong");
+	const body = document.body;
+
 	function getRandomWord() {
-		return words[Math.round(Math.random() * words.length)];
+		return words[Math.floor(Math.random() * words.length)];
 	}
 
 	function showNewWord() {
@@ -87,9 +92,32 @@ document.addEventListener("DOMContentLoaded", () => {
 			showNewWord();
 		});
 
+	function changeBackground(blinkType) {
+		body.classList.add(blinkType);
+		setTimeout(() => {
+			body.classList.remove(blinkType);
+		}, 500);
+	}
+
 	wordInput.addEventListener("input", () => {
-		if (mainWord.textContent.toLowerCase() === wordInput.value.trim().toLowerCase()) {
+		let word = mainWord.textContent.toLowerCase();
+		let input = wordInput.value.trim().toLowerCase();
+
+		let correctInput = true;
+
+		for (let i = 0; i < input.length; i++) {
+			if (input[i] !== word[i]) {
+				correctInput = false;
+				break;
+			}
+		}
+
+		if (correctInput && input.length === word.length) {
 			showNewWord();
+			changeBackground('blink-correct');
+		} else if (!correctInput) {
+			showNewWord();
+			changeBackground("blink-wrong");
 		}
 	});
 });

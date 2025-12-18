@@ -1,0 +1,31 @@
+@use "../base/vars.scss" as *;
+
+@keyframes backgroundBlinkingCorrect {
+	0% {
+		background-color: $colorBG;
+	}
+	50% {
+		background-color: $colorBGCorrect;
+	}
+	100% {
+		background-color: $colorBG;
+	}
+}
+@keyframes backgroundBlinkingWrong {
+	0% {
+		background-color: $colorBG;
+	}
+	50% {
+		background-color: $colorBGWrong;
+	}
+	100% {
+		background-color: $colorBG;
+	}
+}
+
+.blink-correct {
+	animation: backgroundBlinkingCorrect 0.4s forwards;
+}
+.blink-wrong {
+	animation: backgroundBlinkingWrong 0.4s forwards;
+}
