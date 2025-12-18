@@ -30,10 +30,14 @@
 }
 
 .game {
+	height: 100vh;
+	padding: rem(30);
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		row-gap: rem(24);
+		position: relative;
 	}
 	&__timer {
 		font-weight: 700;
@@ -49,11 +53,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	row-gap: rem(30);
+	row-gap: rem(18);
 
 	&__row {
 		display: flex;
-		column-gap: rem(20);
+		column-gap: rem(14);
 	}
 	&__key {
 		font-weight: 700;
@@ -76,6 +80,61 @@
 			transform: rotate(3deg) scale(0.7);
 			background-color: $colorBorderOfKeys;
 			color: $colorLetterOfKeyboardActive;
+		}
+	}
+}
+
+.counter {
+	display: flex;
+	align-items: center;
+	border: rem(2) solid $colorBorderOfKeys;
+	border-radius: rem(17);
+	position: absolute;
+	top: 0;
+	left: 0;
+	&__item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		&:first-child {
+			position: relative;
+			&::after {
+				content: "";
+				position: absolute;
+				height: 100%;
+				width: rem(2);
+				background-color: $colorBorderOfKeys;
+				right: 0;
+				top: 0;
+			}
+		}
+	}
+	&__title {
+		color: $colorBlueText;
+		padding: rem(8) rem(24);
+		font-weight: 700;
+		font-size: rem(20);
+		position: relative;
+		width: 100%;
+		text-align: center;
+		&::after {
+			content: "";
+			position: absolute;
+			height: rem(2);
+			width: 100%;
+			background-color: $colorBorderOfKeys;
+			bottom: 0;
+			left: 0;
+		}
+	}
+	&__number {
+		font-weight: 800;
+		font-size: rem(54);
+		text-align: center;
+		color: $colorGreenText;
+		padding: rem(20);
+		&--red {
+			color: $colorRedText;
 		}
 	}
 }
