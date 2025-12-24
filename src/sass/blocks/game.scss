@@ -96,6 +96,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		position: relative;
 		&:first-child {
 			position: relative;
 			&::after {
@@ -133,6 +134,18 @@
 		text-align: center;
 		color: $colorGreenText;
 		padding: rem(20);
+		&--red {
+			color: $colorRedText;
+		}
+	}
+	&__time {
+		position: absolute;
+		bottom: -40%;
+		left: 50%;
+		transform: translateX(-50%);
+		font-weight: 700;
+		font-size: rem(24);
+		color: $colorGreenText;
 		&--red {
 			color: $colorRedText;
 		}

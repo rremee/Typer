@@ -23,9 +23,28 @@
 	}
 }
 
+@keyframes timeManipulation {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, 2rem);
+	}
+	50% {
+		opacity: 1;
+		transform: translate(-50%);
+	}
+	100% {
+		opacity: 0;
+		transform: translate(-50%, -1rem);
+	}
+}
+
 .blink-correct {
-	animation: backgroundBlinkingCorrect 0.4s forwards;
+	animation: backgroundBlinkingCorrect 0.4s forwards ease-in-out;
 }
 .blink-wrong {
-	animation: backgroundBlinkingWrong 0.4s forwards;
+	animation: backgroundBlinkingWrong 0.4s forwards ease-in-out;
+}
+
+.time-moving {
+	animation: timeManipulation .5s forwards ease-in-out;
 }

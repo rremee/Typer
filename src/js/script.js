@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			wordInput.blur();
 			wordInput.disabled = true;
 			mainWord.textContent = "Game Over";
-			mainWord.style.color = '#2393CD';
+			mainWord.style.color = "#2393CD";
 			clearInterval(timerInterval);
 		}
 	}, 10);
@@ -76,11 +76,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const body = document.body;
 
-	let correctCounter = document.querySelector('#correct-answer');
-	let wrongCounter = document.querySelector('#wrong-answer');
-	
+	let correctCounter = document.querySelector("#correct-answer");
+	let wrongCounter = document.querySelector("#wrong-answer");
+
 	correctCounter.textContent = 0;
 	wrongCounter.textContent = 0;
+
+	const plusTime = document.querySelector("#plus-time");
+	const minusTime = document.querySelector("#minus-time");
+
+	plusTime.textContent = "+ 1";
+	minusTime.textContent = "- 0.5";
+
+	plusTime.style.opacity = '0';
+	minusTime.style.opacity = '0';
 
 	function getRandomWord() {
 		return words[Math.floor(Math.random() * words.length)];
@@ -107,6 +116,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		}, 500);
 	}
 
+	function maniputaleTime(selector) {
+		selector.classList.add("time-moving");
+		setTimeout(() => {
+			selector.classList.remove("time-moving");
+		}, 500);
+	}
+
 	wordInput.addEventListener("input", () => {
 		let word = mainWord.textContent.toLowerCase();
 		let input = wordInput.value.trim().toLowerCase();
@@ -122,14 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		if (correctInput && input.length === word.length) {
 			showNewWord();
-			changeBackground('blink-correct');
+			changeBackground("blink-correct");
 			time += 1;
 			correctCounter.textContent++;
+			maniputaleTime(plusTime);
 		} else if (!correctInput) {
 			showNewWord();
 			changeBackground("blink-wrong");
 			time -= 0.5;
 			wrongCounter.textContent++;
+			maniputaleTime(minusTime);
 		}
 	});
 });
