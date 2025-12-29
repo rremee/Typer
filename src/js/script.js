@@ -51,6 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
 	const timer = document.querySelector("#timer");
 	let time = 15;
 
+	function loadTopResult() {
+		const score = localStorage.getItem('topScore');
+		return score ? parseInt(score) : 0;
+	}
+
+	function saveTopResult(score) {
+		localStorage.setItem('topScore', score);
+	}
+
+	const recordNumber = document.querySelector('#top');
+	let topScore = loadTopResult();
+	recordNumber.textContent = topScore;
+
 	// timer.textContent = time;
 
 	const timerInterval = setInterval(() => {
@@ -64,6 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
 			wordInput.disabled = true;
 			mainWord.textContent = "Game Over";
 			mainWord.style.color = "#2393CD";
+
+			const currentResult = parseInt(correctCounter.textContent);
+			if (currentResult > topScore) {
+				topScore = currentResult;
+				saveTopResult(topScore);
+				recordNumber.textContent = topScore;
+			}
+
 			clearInterval(timerInterval);
 		}
 	}, 10);

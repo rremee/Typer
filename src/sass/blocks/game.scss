@@ -151,3 +151,37 @@
 		}
 	}
 }
+
+.record {
+	border: rem(2) solid $colorRecordBorder;
+	border-radius: rem(17);
+	position: absolute;
+	top: 0;
+	right: 0;
+	&__title {
+		color: $colorRecordText;
+		text-transform: uppercase;
+		padding: rem(8) rem(24);
+		font-weight: 700;
+		font-size: rem(20);
+		position: relative;
+		width: 100%;
+		text-align: center;
+		&::after {
+			content: "";
+			position: absolute;
+			height: rem(2);
+			width: 100%;
+			background-color: $colorRecordBorder;
+			bottom: 0;
+			left: 0;
+		}
+	}
+	&__number {
+		font-weight: 800;
+		font-size: rem(54);
+		text-align: center;
+		color: $colorRecordText;
+		padding: rem(20);
+	}
+}
